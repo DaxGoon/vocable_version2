@@ -165,9 +165,10 @@ def no_repetition(input_word, players_data):
     Player objects in player_data (a list) contain word_list (a list) attributes.
     :returns: Boolean
     """
-    for idx in range(len(players_data)):
-        for word in players_data[idx].word_list:
-            if word.lower() == input_word.lower():
+    input_word = input_word.lower()  # lowercase the words for comparison
+    for player_data in players_data:
+        for word in player_data.word_list:
+            if word.lower() == input_word:
                 return False
     return True
 
