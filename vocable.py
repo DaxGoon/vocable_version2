@@ -155,8 +155,7 @@ def language_choice():
 # create word validation logic using enchant
 def word_validation(word_to_check):
     """pass a string and returns either True or False. True if the string found in the dictionary_to_use object"""
-    is_correct = dictionary_to_use.check(word_to_check)
-    return is_correct
+    return dictionary_to_use.check(word_to_check)
 
 
 # create repetitive word check function to allow one word only once
