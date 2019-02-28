@@ -114,8 +114,8 @@ def create_player_list(player_number):
     """
     global player_list
     for num in range(player_number):
-        _ = input(f"what is the name of player {num + 1}: ")
-        player_list.append(_)
+        names_entered = input(f"what is the name of player {num + 1}: ")
+        player_list.append(names_entered)
     return player_list
 
 
