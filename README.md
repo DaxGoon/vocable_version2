@@ -22,4 +22,4 @@ Current version of the game supports words in:
     3. French
     4. German
 
-The spell checking is done in this game via pyenchant library which is also used in office suite softwares such as OpenOffice.
+*The spell checking is done in this game via pyenchant library which is also used in office suite software such as OpenOffice.*

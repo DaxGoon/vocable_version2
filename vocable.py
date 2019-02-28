@@ -26,7 +26,7 @@ game_level_word_length = 0
 def welcome_screen():
     # welcome statement
     print(f"""
-    -----***** Welcome to VOCABLE *****-----
+    -----***** Welcome to VOCABLE *****-----‚
     Current time: {playtime}
 
     HERE ARE SOME RULES FOR THE GAME
