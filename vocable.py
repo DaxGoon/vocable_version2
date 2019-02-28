@@ -182,15 +182,9 @@ def game_logic(players_data):
     game_switch = True
     valid_word = False
     start_letter = ""
-    input_word = ""
     foul_message = "\n!!¡¡ FOUL¡¡!!!!¡¡ FOUL¡¡!!!!¡¡ FOUL¡¡!!\nThe word was not recognised as a valid word."
     repetition_warning = "\n!!¡¡ WORD REPEATED!!¡¡ WORD REPEATED¡¡!!!!¡¡!!¡¡ WORD REPEATED¡¡!!!!¡¡" \
                          "\nA WORD CAN BE USED ONLY ONCE"
-    # establishing conditions, these conditions will be applied bellow in the inner loop against user entry
-    validated_word = word_validation(input_word)
-    sanitised_word = word_sanitation(input_word, game_level_word_length)
-    correct_start_letter = input_word[0].upper() == start_letter
-    not_repeated = no_repetition(input_word, players_data)
     # start the outer loop
     while game_switch:
         player_turn = players_data[0].name
@@ -213,6 +207,9 @@ def game_logic(players_data):
             while not valid_word:
                 if not start_letter:
                     input_word = input(f"please enter a valid word to begin: ")
+                    # establishing conditions, which will be applied bellow in the inner loop against user entry
+                    validated_word = word_validation(input_word)
+                    sanitised_word = word_sanitation(input_word, game_level_word_length)
                     if validated_word and sanitised_word:
                         players_data[-1].word_list.append(input_word)
                         start_letter = input_word[-1].upper()
@@ -229,6 +226,11 @@ def game_logic(players_data):
                             continue
                 else:
                     input_word = input(f"please enter a valid word beginning with letter {start_letter}: ")
+                    # establishing conditions, which will be applied bellow in the inner loop against user entry
+                    validated_word = word_validation(input_word)
+                    sanitised_word = word_sanitation(input_word, game_level_word_length)
+                    correct_start_letter = input_word[0].upper() == start_letter
+                    not_repeated = no_repetition(input_word, players_data)
                     if validated_word and sanitised_word and correct_start_letter and not_repeated:
                         players_data[-1].word_list.append(input_word)
                         start_letter = input_word[-1].upper()
